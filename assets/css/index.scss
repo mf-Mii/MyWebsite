@@ -82,8 +82,9 @@
                 max-width: 1000px;margin: auto;
                 .profile{
                     position: relative; display: inline-block;
-                    width: 70%; margin: 10% auto; 
-                    left: calc((100% - 1000px) / 2);
+                    width: 70%; min-width: 240px;
+                    margin: 10% auto; 
+                    left: calc((100% - 70%) / 2);
                     z-index: 2099;
                     .title{
                         position: relative;
@@ -104,17 +105,25 @@
                         z-index: 1000;
                         filter: drop-shadow(20px 20px 15px #333);
                         img{
-                            height: 350px;
+                            width: 350px;
                             border-radius: 50px;
+                            @media screen and (max-width: 480px) {
+                                width: 100%;
+                                transform: translateX(-5%);
+                            }
                         }
                     }
                     .detail{
                         display: inline-block; position: relative; z-index: 1801;
-                        font-size: 22px; width: 100%;
+                        font-size: 22px; width: 70%;
                         font-family: 'M PLUS 1 Code', sans-serif;
-                        width: auto; margin: 30px auto;
-                        max-width: 70%;
+                        margin: 30px auto;
+                        max-width: 500px;
                         background: rgba(#555, .6);
+
+                        @media screen and (max-width: 480px) {
+                            width: 100%;
+                        }
                         p{
                             margin: 10px;
                             color: #fff;
@@ -139,11 +148,14 @@
                 .sections{
                     font-size: 0px;
                     .flex-box{
-                        display: flex; flex-wrap: nowrap;
+                        display: flex; flex-wrap: wrap;
                         margin: auto; justify-content: center;
                         section{
                             display: inline-block;
-                            width: 42%; margin: 10px 2%;
+                            width: 42%;
+                            margin: 10px 2%;
+                            min-width: 200px;
+                            flex-grow: 1;
                             padding: 10px 2%;
                             vertical-align: top;
                         }
@@ -186,6 +198,10 @@
             .content{
                 width: 60%; min-width: 240px; max-width: 800px;
                 margin: auto;
+                @media screen and (max-width: 480px) {
+                    width: 90%;
+                    min-width: none;
+                }
 
                 .title{
                     font-size: 48px;
@@ -193,7 +209,7 @@
                     text-align: center;
                     font-family: 'Yusei Magic', sans-serif;
                     padding: 10px 0px;
-                    width: 250px; margin: auto;
+                    width: 250px; margin: 0px auto 50px auto;
                 }
 
                 .tab{
