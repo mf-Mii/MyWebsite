@@ -1,0 +1,39 @@
+.content main .errorgrid {
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  padding: 50px 0px 50px 0px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.content main .errorgrid .title {
+  display: block;
+}
+
+.content main .errorgrid .title span {
+  font-size: 36px;
+}
+
+.content main .errorgrid a {
+  color: #333;
+  -webkit-transition: .3s;
+  transition: .3s;
+  display: inline-block;
+}
+
+.content main .errorgrid a:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+@media screen and (max-width: 480px) {
+  .content main .errorgrid {
+    width: 90%;
+    font-size: 18px;
+  }
+  .content main .errorgrid .title span {
+    font-size: 24px;
+  }
+}
+/*# sourceMappingURL=errorpage.css.map */
