@@ -31,6 +31,7 @@
                     <li><a href="/works/">Works</a></li>
                     <li><a href="https://r.mfmii.work/gh" target="_blank">Github</a></li>
                     <li><a href="/sns/">SNS</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </nav>
         </header>
@@ -55,7 +56,7 @@
                         <div class="detail">
                             <p>
                                 Javaを愛し、Javaに愛されているのかわからない工業生。<br>
-                                <u>「ないものは作ればいい」</u>という言葉の通り、自分で作ることが大好きです。 <br>
+                                <u><b>「ないものは作ればいい」</b></u>という言葉の通り、自分で作ることが大好きです。 <br>
                                 Discordにて主に出現していますが、TwitterやYouTubeも今後もっとやりたいと思っています。 <br>
                                 映像制作もしているので、ぜひご覧ください。
                             </p>
@@ -64,9 +65,9 @@
                 </div>
             </div>
             <!--ABOUT-->
-            <div class="grid2">
+            <div class="grid2" id="about">
                 <div class="content">
-                    <div class="title"><span>About me</span></div>
+                    <div class="title"><span>About mf_Mii</span></div>
                     <div class="sections">
                         <div class="flex-box">
                             <section>
@@ -99,25 +100,66 @@
             </div>
             <!--RELATED WORKS-->
             <div class="grid3">
+                <div class="bg">
+                    <img src="/assets/img/edit_FILL1_wght400_GRAD0_opsz48.svg" class="bg_pencil" protected>
+                    <div class="bg_maru1"></div>
+                    <div class="bg_batsu1"></div>
+                    <div class="bg_down1"></div>
+                </div>
+                <div class="bg-protect"></div>
                 <div class="content">
                     <div class="title">作品紹介</div>
                     <div class="tab">
-                        <a href="/works/related/embeds/java" target="works_window"><span>Java</span></a>
-                        <a href="/works/related/embeds/web" target="works_window"><span>WEB</span></a>
+                        <a href="/works/related/embeds/java.html" target="works_window"><span>Java</span></a>
+                        <a href="/works/related/embeds/web.html" target="works_window"><span>WEB</span></a>
+                        <!--<a href="/works/related/embeds/movie.html" target="works_window"><span>Movie</span></a>-->
                     </div>
                     <div class="works_window">
-                        <iframe src="/works/related/embeds/java" frameborder="0" name="works_window"></iframe>
+                        <iframe src="/works/related/embeds/java.html" frameborder="0" name="works_window"></iframe>
+                    </div>
+                </div>
+            </div>
+            <!--CONTACTS-->
+            <div class="grid4">
+                <div class="content">
+                    <h2 class="title">✉お問い合わせ</h2>
+                    <h5 class="subtitle">お仕事の依頼や応援メッセージはこちらから！</h5>
+                    <div class="__GRID_UNDERLINE__"></div>
+                    <div class="contact_btn_box">
+                        <div class="btn">
+                            <a href="/contact/services">運営するサービスに関する<br>お問合せ</a>
+                        </div>
+                        <div class="btn">
+                            <a href="/contact">その他お問合せ</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
         <footer>
-            <span class="copyright">©mf_Mii 2021</span>
+            <span class="copyright">©mf_Mii 2022</span>
         </footer>
     </div>
     <script>
+        $(window).on('scroll', function() {
+            const h = $(window).height();
+            const scrollBottom = $(window).scrollTop() + h;
+            //G3 ANIMATION
+            if (scrollBottom >= $(".grid3").offset().top) {
+                const move = scrollBottom - $(".grid3").offset().top;
+                $("img.bg_pencil").css("right", (85 + (move / 6))+"px")
+                $("div.bg_down1").css("top", (50 + (move / 15)) + "px")
+                $("div.bg_maru1").css({
+                    bottom: (20 + (move / 5))+"px",
+                    left: (-20 + (move / 8))+"px"
+                })
+            }
+
+        })
     </script>
     <script src="/assets/js/page-api.js"></script>
     <script src="/assets/js/bg-slide.js"></script>
+    <script src="/assets/js/image-protection.js"></script>
+    <link rel="stylesheet" href="/assets/css/image-protection.css">
 </body>
 </html>

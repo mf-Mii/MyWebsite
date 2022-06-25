@@ -121,7 +121,7 @@
                     }
                     section{
                         font-size: 16px;
-                        width: 96%; margin: 10px auto;
+                        width: calc(96% - (4% / 2)); margin: 10px auto;
                         padding: 10px;
                         background: rgba(146, 146, 146, 0.658);
                         h2.title{
@@ -153,8 +153,11 @@
         //RELATED WORKS
         .grid3{
             padding: 50px 0px; width: 100%;
-            background: #ffff67;
+            //background: #ffff67;
+            background:rgb(49, 49, 49);
             .content{
+                position: relative;
+                z-index: 2000;
                 width: 60%; min-width: 240px; max-width: 800px;
                 margin: auto;
                 @media screen and (max-width: 480px) {
@@ -202,6 +205,110 @@
                     iframe{
                         width: 100%; height: calc(100% - 20px);
                         border: 1px solid #333;
+                    }
+                }
+            }
+            .bg {
+                z-index: 1;
+                position: absolute;
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                .bg_pencil {
+                    position: absolute;
+                    right: 85px;
+                    transform: rotate(45deg) scale(500%);
+                }
+                .bg_maru1 {
+                    position: absolute;
+                    background-image: url('/assets/img/circle_FILL1_wght100_GRAD0_opsz20.svg');
+                    width: 300px;
+                    height: 200px;
+                    bottom: 20px;
+                    left: 50px;
+                }
+                .bg_batsu1 {
+                    position: absolute;
+                    background-image: url('/assets/img/close_FILL1_wght100_GRAD0_opsz20.svg');
+                    width: 300px;
+                    height: 200px;
+                    bottom: 200px;
+                    right: 50px;
+                }
+                .bg_down1 {
+                    position: absolute;
+                    background-image: url('/assets/img/bg_down.svg');
+                    width: 300px;
+                    height: 200px;
+                    top: 50px;
+                    left: -20px;
+                }
+            }
+            .bg-protect{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                z-index: 1000;
+            }
+        }
+        .grid4 {
+            background:rgb(204, 204, 204);
+            padding: 100px 0px;
+            .content {
+                width: 75%;
+                min-width: 280px;
+                margin: auto;
+                padding: 25px;
+                background: #fffa;
+                .title{
+                    display: block;
+                    font-size: 28px;
+                    //margin-top: 0px;
+                    margin-bottom: 0px;
+                    text-align: center;
+                    font-weight: lighter;
+                    letter-spacing: 5px;
+                }
+                .subtitle {
+                    display: block;
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                    font-size: smaller;
+                    font-weight: lighter;
+                    text-align: center;
+                }
+                .__GRID_UNDERLINE__ {
+                    display: block;
+                    width: 80%;
+                    margin: auto;
+                    text-align: center;
+                    border-bottom: #666 1px solid;
+                }
+                .contact_btn_box{
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    margin: 25px auto;
+                    .btn {
+                        margin: 10px;
+                        border: 3px solid #444;
+                        a {
+                            display: inline-block;
+                            padding: 15px 20px;
+                            text-decoration: none;
+                            text-align: center;
+                            font-size: 18px;
+                            transition: .5s;
+                            background: #444;
+                            color: #fff;
+                            &:hover {
+                                color: #333;
+                                background: #eee;
+                                transition: .3s;
+                            }
+                        }
                     }
                 }
             }

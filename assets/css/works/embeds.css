@@ -33,8 +33,13 @@ body.java header {
   font-size: 16px;
 }
 
-body.java main iframe {
+body.java main {
   height: calc(100vh - 26px);
+  width: 100%;
+}
+
+body.java main iframe {
+  height: 100%;
   width: 100%;
 }
 
