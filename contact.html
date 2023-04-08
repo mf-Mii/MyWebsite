@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="contact_form">
-                <iframe id="g_form" src="https://docs.google.com/forms/d/e/1FAIpQLSdIsSx59usyQYiGpo0CiT0hT1bteBhpF6WWdwKw-cA5wS8KZA/viewform?embedded=true" width="100%" height="500px" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+                <iframe id="g_form" src="" width="100%" height="500px" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
             </div>
         </div>
     </main>
@@ -56,21 +56,61 @@
     </footer>
 </div>
 <script>
-    $(window).on('scroll', function() {
-        const h = $(window).height();
-        const scrollBottom = $(window).scrollTop() + h;
-        //G3 ANIMATION
-        if (scrollBottom >= $(".grid3").offset().top) {
-            const move = scrollBottom - $(".grid3").offset().top;
-            $("img.bg_pencil").css("right", (85 + (move / 6))+"px")
-            $("div.bg_down1").css("top", (50 + (move / 15)) + "px")
-            $("div.bg_maru1").css({
-                bottom: (20 + (move / 5))+"px",
-                left: (-20 + (move / 8))+"px"
-            })
+    $(function(){
+        //PreFill Google Form
+        const queries = new URLSearchParams(location.search);
+        let additional_queries = [];
+        if(queries.has('t')){
+            switch (queries.get('t')) {
+                case 'service':
+                    additional_queries.push({entry:'1248405612',val:'サービスに関する問い合わせ'});
+                    break;
+                case 'gh':
+                    additional_queries.push({entry:'1248405612',val:'Githubに公開されているプログラムに関する問い合わせ'});
+                    break;
+                case 'video':
+                    additional_queries.push({entry:'1248405612',val:'ニコニコ動画及びYouTubeに投稿されている動画に関する問い合わせ'});
+                    break;
+            }
         }
-
-    })
+        if (queries.has('s')) {
+            switch (queries.get('s')) {
+                case 'cpsdm':
+                    additional_queries.push({entry: '325279779', val:'#コンパス デッキメーカー'});
+                    break;
+                case 'web':
+                    additional_queries.push({entry: '325279779', val:'Webサイト(https://mfmii.work/)'});
+                    break;
+            }
+        }
+        if (queries.has('cpsdm')) {
+            switch (queries.get('cpsdm')) {
+                case 'data':
+                    additional_queries.push({entry: '1564492013', val:'データの修正,提供'});
+                    break;
+                case 'img':
+                    additional_queries.push({entry: '1564492013', val:'画像の提供'});
+                    break;
+                case 'audio':
+                    additional_queries.push({entry: '1564492013', val:'音声の提供'});
+                    break;
+                case 'bug':
+                    additional_queries.push({entry: '1564492013', val:'バグ報告'});
+                    break;
+                case 'feature':
+                    additional_queries.push({entry: '1564492013', val:'機能要望'});
+                    break;
+                case 'abuse':
+                    additional_queries.push({entry: '1564492013', val:'著作権に関する問い合わせ'});
+                    break;
+            }
+        }
+        console.log('additional_queries',additional_queries);
+        console.log('Start Loading Google Form');
+        var $g_form = $('#g_form');
+        $g_form.attr('src', "https://docs.google.com/forms/d/e/1FAIpQLSdIsSx59usyQYiGpo0CiT0hT1bteBhpF6WWdwKw-cA5wS8KZA/viewform?embedded=true"
+                    + (additional_queries.length > 0 ? "&usp=pp_url&" + additional_queries.map((v) => "entry." + v.entry + "=" + encodeURIComponent(v.val)).join("&") : ""));
+    });
 </script>
 <script src="/assets/js/bg-slide.js"></script>
 <script src="/assets/js/image-protection.js"></script>
