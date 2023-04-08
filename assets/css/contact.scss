@@ -1,0 +1,19 @@
+main {
+  .contact_box {
+    background: #fff;
+    width: 90%;
+    min-width: 360px;
+    max-width: 1200px;
+    margin: 50px auto 0 auto;
+    padding: 30px 0;
+    text-align: center;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.2));
+    .contact_top__title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 1.5rem;
+    }
+  }
+}
