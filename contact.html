@@ -81,6 +81,9 @@
                 case 'web':
                     additional_queries.push({entry: '325279779', val:'Webサイト(https://mfmii.work/)'});
                     break;
+                case 'tis':
+                    additional_queries.push({entry: '325279779', val:'Twitter Image Safer'});
+                    break;
             }
         }
         if (queries.has('cpsdm')) {
@@ -102,6 +105,19 @@
                     break;
                 case 'abuse':
                     additional_queries.push({entry: '1564492013', val:'著作権に関する問い合わせ'});
+                    break;
+            }
+        }
+        if (queries.has('tis')) {
+            switch (queries.get('tis')) {
+                case 'user':
+                    additional_queries.push({entry: '306943211', val:'ユーザー情報の提供'});
+                    break;
+                case 'media':
+                    additional_queries.push({entry: '306943211', val:'メディア情報の提供'});
+                    break;
+                case 'bug':
+                    additional_queries.push({entry: '306943211', val:'バグ報告'});
                     break;
             }
         }
